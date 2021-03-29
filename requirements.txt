@@ -1,0 +1,3 @@
+KekikTaban
+requests
+tabulate
