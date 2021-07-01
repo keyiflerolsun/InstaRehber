@@ -38,14 +38,14 @@ class KekikInsta():
         elif self.yetki["two_factor_required"]:
             iki_asama_data = {
                 "username"         : self.yetki["two_factor_info"]["username"],
-                "verificationCode" : input(f"Sms Doğrulama Kodu ({self.yetki['two_factor_info']['obfuscated_phone_number']}) : "),
+                "verificationCode" : input(f"Uygulama veya Sms Doğrulama Kodu ({self.yetki['two_factor_info']['obfuscated_phone_number']}) : "),
                 "identifier"       : self.yetki["two_factor_info"]["two_factor_identifier"],
                 "queryParams"      : '{"next": "/"}',
             }
-            self.yetki.post(f"{self.insta}/accounts/login/ajax/two_factor/", data=iki_asama_data)
-            self.yetki.headers.update({"X-CSRFToken": self.yetki.cookies["csrftoken"]})
+            self.oturum.post(f"{self.insta}/accounts/login/ajax/two_factor/", data=iki_asama_data)
+            self.oturum.headers.update({"X-CSRFToken": self.oturum.cookies["csrftoken"]})
 
-            return self.yetki
+            return self.oturum
         else:
             print(self.yetki)
             return "[!] - Bir şeyler yanlış gitti"
