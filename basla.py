@@ -55,7 +55,7 @@ END:VCARD
 
 
 if __name__ == '__main__':
-    hesap = KekikInsta(konsol.input("[bold red]Kullanıcı Adı : [/]"), konsol.input("[bold red]Giriş Şifresi : [/]"))
+    hesap = KekikInsta(konsol.input("[bold red]Kullanıcı Adı : [/]"), konsol.input("[bold red]Giriş Şifresi : [/]", password=True))
     if not os.path.isdir(CIKTI_DIZINI): os.mkdir(CIKTI_DIZINI)
     telefon_numaralari = hesap.telefon_ver
     print('\n')
